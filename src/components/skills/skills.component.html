@@ -1,26 +1,45 @@
-<section id="skills" class="py-24 bg-black fade-in-section" appFadeIn>
-  <div class="container mx-auto px-6">
-    <div class="flex items-baseline gap-4 mb-12">
-      <span class="text-cyan-accent font-mono">01</span>
-      <h2 class="text-4xl font-bold uppercase tracking-widest">Habilidades</h2>
+<section id="skills" class="content-block ultra-minimal relative overflow-hidden" appScrollReveal>
+  <!-- Glitch video background -->
+  <video autoplay loop muted playsinline class="glitch-bg">
+    <source src="/src/assets/video1.mp4" type="video/mp4">
+  </video>
+  
+  <div class="container mx-auto px-6 max-w-6xl relative z-10">
+    <div class="mb-24">
+      <span class="text-glitch font-mono text-sm tracking-widest uppercase mb-8 block">04</span>
+      <h2 class="hero-text text-primary mb-12">
+        HABILIDADES
+      </h2>
+      <p class="subtitle max-w-2xl mb-12">
+        Tecnologías y herramientas que domino para crear soluciones digitales excepcionales
+      </p>
+      <button (click)="openCertificates()" class="btn-minimal hover-minimal">
+        Ver Certificados
+      </button>
     </div>
     
-    @for (category of skillCategories; track category.title) {
-      <div class="mb-16">
-        <h3 class="text-2xl font-bold text-cyan-accent mb-8 text-center">{{ category.title }}</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          @for (skill of category.skills; track skill.name) {
-            <div class="border border-neutral-800 p-6 hover:border-cyan-accent hover:bg-neutral-900/50 transition-all duration-300 text-center group">
-              @if (skill.isEmoji) {
-                <div class="text-4xl mb-3">{{ skill.icon }}</div>
-              } @else {
-                <img [src]="skill.icon" [alt]="skill.name" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              }
-              <p class="text-sm text-neutral-300 font-medium">{{ skill.name }}</p>
-            </div>
-          }
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (category of skillCategories; track category.title) {
+        <div class="minimal-card p-8" appScrollReveal>
+          <h3 class="text-2xl font-bold text-primary mb-8">{{ category.title }}</h3>
+          
+          <div class="space-y-4">
+            @for (skill of category.skills; track skill.name) {
+              <div class="flex items-center gap-4 py-2">
+                @if (skill.isEmoji) {
+                  <span class="text-lg">{{ skill.icon }}</span>
+                } @else {
+                  <img [src]="skill.icon" [alt]="skill.name" class="w-5 h-5" />
+                }
+                <span class="text-secondary flex-1">{{ skill.name }}</span>
+                @if (skill.featured) {
+                  <div class="w-2 h-2 bg-accent rounded-full"></div>
+                }
+              </div>
+            }
+          </div>
         </div>
-      </div>
-    }
+      }
+    </div>
   </div>
 </section>
