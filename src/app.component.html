@@ -1,0 +1,23 @@
+<!-- Loader -->
+<div *ngIf="isLoading" class="fixed inset-0 z-50 flex items-center justify-center bg-black">
+  <div class="text-center">
+    <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+    <p class="text-white text-xl tracking-[0.3em] uppercase">Cargando...</p>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div *ngIf="!isLoading" class="relative animate-fade-in">
+  <app-header></app-header>
+  <main>
+    <app-hero></app-hero>
+    <app-about></app-about>
+    <app-skills></app-skills>
+    <app-projects></app-projects>
+    <app-experience></app-experience>
+    <app-education></app-education>
+    <app-stats></app-stats>
+    <app-contact></app-contact>
+  </main>
+  <app-footer></app-footer>
+</div>

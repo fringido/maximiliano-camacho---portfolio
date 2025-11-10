@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maximiliano Camacho - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: "Orbitron", sans-serif;
+      }
+      .card {
+        backdrop-filter: blur(16px) saturate(200%);
+        -webkit-backdrop-filter: blur(16px) saturate(200%);
+        background-color: rgba(17, 25, 40, 0.42);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+      }
+      .text-cyan-accent {
+        color: #00ffff;
+      }
+      section[id] {
+        scroll-margin-top: 80px; /* Adjust based on header height */
+      }
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .glitch-bg {
+        position: relative;
+      }
+      .glitch-bg::before,
+      .glitch-bg::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("src/assets/imageBg.png");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: 2;
+      }
+      .glitch-bg::before {
+        animation: glitch-1 2.5s infinite;
+      }
+      .glitch-bg::after {
+        animation: glitch-2 1.5s infinite;
+      }
+      @keyframes glitch-1 {
+        0%,
+        100% {
+          clip-path: inset(45% 0 50% 0);
+        }
+        20% {
+          clip-path: inset(10% 0 85% 0);
+        }
+        40% {
+          clip-path: inset(70% 0 10% 0);
+        }
+        60% {
+          clip-path: inset(30% 0 60% 0);
+        }
+        80% {
+          clip-path: inset(90% 0 5% 0);
+        }
+      }
+      @keyframes glitch-2 {
+        0%,
+        100% {
+          clip-path: inset(5% 0 90% 0);
+        }
+        25% {
+          clip-path: inset(80% 0 10% 0);
+        }
+        50% {
+          clip-path: inset(20% 0 70% 0);
+        }
+        75% {
+          clip-path: inset(60% 0 30% 0);
+        }
+      }
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.8s ease-out;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "cyan-accent": "#00ffff",
+            },
+          },
+        },
+      };
+    </script>
+    <script type="importmap">
+      {
+        "imports": {
+          "rxjs": "https://aistudiocdn.com/rxjs@^7.8.2?conditions=es2015",
+          "rxjs/operators": "https://aistudiocdn.com/rxjs@^7.8.2/operators?conditions=es2015",
+          "rxjs/ajax": "https://aistudiocdn.com/rxjs@^7.8.2/ajax?conditions=es2015",
+          "rxjs/webSocket": "https://aistudiocdn.com/rxjs@^7.8.2/webSocket?conditions=es2015",
+          "rxjs/testing": "https://aistudiocdn.com/rxjs@^7.8.2/testing?conditions=es2015",
+          "rxjs/fetch": "https://aistudiocdn.com/rxjs@^7.8.2/fetch?conditions=es2015",
+          "@angular/compiler": "https://next.esm.sh/@angular/compiler@^20.3.10?external=rxjs",
+          "@angular/platform-browser": "https://next.esm.sh/@angular/platform-browser@^20.3.10?external=rxjs",
+          "@angular/core": "https://next.esm.sh/@angular/core@^20.3.10?external=rxjs",
+          "@angular/common": "https://next.esm.sh/@angular/common@^20.3.10?external=rxjs"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="bg-black">
+    <app-root></app-root>
+  </body>
+</html>

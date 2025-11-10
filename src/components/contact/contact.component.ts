@@ -1,0 +1,17 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FadeInDirective } from '../../directives/fade-in.directive';
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FadeInDirective],
+})
+export class ContactComponent {
+  contactInfo = [
+    { type: 'Email', value: 'mmaaxx77@msn.com', link: 'mailto:mmaaxx77@msn.com' },
+    { type: 'GitHub', value: 'github.com/fringido', link: 'https://github.com/fringido' },
+    { type: 'Behance', value: 'behance.net/mmaaxx77', link: 'https://www.behance.net/gallery/203143285/Portafolio' },
+    { type: 'Location', value: 'CDMX, México', link: '#' }
+  ];
+}

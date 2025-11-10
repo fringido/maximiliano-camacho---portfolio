@@ -1,0 +1,26 @@
+<section id="skills" class="py-24 bg-black fade-in-section" appFadeIn>
+  <div class="container mx-auto px-6">
+    <div class="flex items-baseline gap-4 mb-12">
+      <span class="text-cyan-accent font-mono">01</span>
+      <h2 class="text-4xl font-bold uppercase tracking-widest">Habilidades</h2>
+    </div>
+    
+    @for (category of skillCategories; track category.title) {
+      <div class="mb-16">
+        <h3 class="text-2xl font-bold text-cyan-accent mb-8 text-center">{{ category.title }}</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          @for (skill of category.skills; track skill.name) {
+            <div class="border border-neutral-800 p-6 hover:border-cyan-accent hover:bg-neutral-900/50 transition-all duration-300 text-center group">
+              @if (skill.isEmoji) {
+                <div class="text-4xl mb-3">{{ skill.icon }}</div>
+              } @else {
+                <img [src]="skill.icon" [alt]="skill.name" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+              }
+              <p class="text-sm text-neutral-300 font-medium">{{ skill.name }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
