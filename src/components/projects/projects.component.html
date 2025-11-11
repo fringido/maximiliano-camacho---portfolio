@@ -1,75 +1,52 @@
-<section
-  id="projects"
-  class="content-block ultra-minimal relative overflow-hidden"
-  appScrollReveal
->
-  <!-- Glitch video background -->
-  <video
-    autoplay
-    loop
-    muted
-    playsinline
-    class="glitch-bg opacity-70 top-0 left-0 w-full h-full object-cover z-0"
-  >
-    <source src="/src/assets/video2.mp4" type="video/mp4" />
+<section id="projects" class="content-block ultra-minimal relative overflow-hidden" appScrollReveal>
+  <video autoplay loop muted playsinline class="glitch-bg top-0 left-0 w-full h-full object-cover z-0 opacity-50">
+    <source src="/src/assets/video1.mp4" type="video/mp4">
   </video>
-  <div class="glass-bg-section"></div>
+    <div class="glass-bg-section"></div>
 
-  <div class="container mx-auto px-6 max-w-6xl relative z-10">
-    <div class="mb-24">
-      <span
-        class="text-glitch font-mono text-sm tracking-widest uppercase mb-8 block"
-        >03</span
-      >
-      <h2 class="text-6xl font-extrabold text-primary mb-12">PROYECTOS</h2>
-      <p class="subtitle max-w-2xl">
-        Una selección de proyectos que demuestran mi experiencia y habilidades
-        técnicas
+  <div class="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
+    <div class="mb-16 sm:mb-24">
+      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block">03</span>
+      <h2 class="hero-text text-primary mb-8 sm:mb-12">PROYECTOS</h2>
+      <p class="subtitle max-w-xl sm:max-w-2xl">
+        Una selección de proyectos que demuestran mi experiencia y habilidades técnicas
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
       @for (project of projects; track project.title) {
-      <div class="minimal-card p-8 group" appScrollReveal>
-        @if (project.image) {
-        <div class="mb-8 overflow-hidden">
-          <img
-            [src]="project.image"
-            [alt]="project.title"
-            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-        }
+        <div class="minimal-card p-6 sm:p-8 group" appScrollReveal>
+          @if (project.image) {
+            <div class="mb-6 sm:mb-8 overflow-hidden rounded-lg">
+              <img [src]="project.image" [alt]="project.title" 
+                   class="w-full h-40 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+          }
 
-        <h3 class="text-3xl font-bold text-primary mb-6">
-          {{ project.title }}
-        </h3>
-        <p class="subtitle mb-8">{{ project.description }}</p>
+          <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6">
+            {{ project.title }}
+          </h3>
+          <p class="subtitle mb-6 sm:mb-8">{{ project.description }}</p>
 
-        <div class="flex flex-wrap gap-3 mb-8">
-          @for (tech of project.stack.split(','); track tech) {
-          <span
-            class="text-glitch font-mono text-xs tracking-wider uppercase border border-glitch px-3 py-1"
-          >
-            {{ tech.trim() }}
-          </span>
+          <div class="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
+            @for (tech of project.stack.split(','); track tech) {
+              <span class="text-glitch font-mono text-xs tracking-wider uppercase border border-glitch px-2 sm:px-3 py-1">
+                {{ tech.trim() }}
+              </span>
+            }
+          </div>
+
+          @if (project.link && project.link !== '#') {
+            <a [href]="project.link" target="_blank" 
+               class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase">
+              Ver Proyecto →
+            </a>
+          } @else {
+            <span class="text-glitch font-mono text-sm tracking-wider uppercase">
+              Próximamente →
+            </span>
           }
         </div>
-
-        @if (project.link && project.link !== '#') {
-        <a
-          [href]="project.link"
-          target="_blank"
-          class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase"
-        >
-          Ver Proyecto →
-        </a>
-        } @else {
-        <span class="text-glitch font-mono text-sm tracking-wider uppercase">
-          Próximamente →
-        </span>
-        }
-      </div>
       }
     </div>
   </div>

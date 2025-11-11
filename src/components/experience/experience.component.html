@@ -1,28 +1,28 @@
 <section id="experience" class="content-block ultra-minimal relative overflow-hidden" appScrollReveal>
-  <!-- Glitch video background -->
   <video autoplay loop muted playsinline class="glitch-bg top-0 left-0 w-full h-full object-cover z-0 opacity-50">
-    <source src="/src/assets/video3.mp4" type="video/mp4">
+    <source src="/src/assets/video2.mp4" type="video/mp4">
   </video>
-  <div class="glass-bg-section"></div>
-  <div class=" container mx-auto px-6 max-w-4xl relative z-10">
-    <div class="mb-24">
-      <span class="text-glitch font-mono text-sm tracking-widest uppercase mb-8 block">04</span>
-      <h2 class="text-6xl font-extrabold text-primary mb-12">
+    <div class="glass-bg-section"></div>
+  
+  <div class="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
+    <div class="mb-16 sm:mb-24">
+      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block">03</span>
+      <h2 class="hero-text text-primary mb-8 sm:mb-12">
         EXPERIENCIA
       </h2>
     </div>
     
-    <div class=" p-8 md:p-12">
-      <div class="space-y-16">
+    <div class="minimal-card p-6 sm:p-8 md:p-12">
+      <div class="space-y-12 sm:space-y-16">
         @for (exp of experiences; track exp.title) {
-          <div class="border-l border-glitch pl-12 relative" appScrollReveal>
+          <div class="border-l border-glitch pl-8 sm:pl-12 relative" appScrollReveal>
             <div class="absolute -left-px top-0 w-px h-full bg-gradient-to-b from-accent to-transparent"></div>
-            <div class="absolute -left-2 top-2 w-3 h-3 bg-accent rounded-full"></div>
+            <div class="absolute -left-1.5 sm:-left-2 top-2 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent rounded-full"></div>
             
-            <div class="space-y-4">
-              <span class="text-glitch font-mono text-sm tracking-wider uppercase">{{ exp.date }}</span>
-              <h3 class="text-4xl font-bold text-primary">{{ exp.title }}</h3>
-              <p class="subtitle text-xl">{{ exp.company }}</p>
+            <div class="space-y-3 sm:space-y-4">
+              <span class="text-glitch font-mono text-xs sm:text-sm tracking-wider uppercase">{{ exp.date }}</span>
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">{{ exp.title }}</h3>
+              <p class="subtitle text-lg sm:text-xl">{{ exp.company }}</p>
             </div>
           </div>
         }

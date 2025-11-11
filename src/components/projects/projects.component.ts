@@ -21,27 +21,27 @@ export class ProjectsComponent {
       description: 'Diseño y desarrollo de gráficas y dashboards personalizados para visualización de datos con exploración de tecnologías NLP.',
       stack: 'Angular, TypeScript, Chart.js',
       image: '/src/assets/images/chat.png',
-      link: '#'
+      link: 'https://broadcasterbot.mx/'
     },
     {
       title: 'Hotel Management Dashboard',
       description: 'Una solución integral para la administración hotelera, el estado de habitaciones y la gestión de reservas.',
       stack: 'Angular, NgRx, TypeScript, Storybook',
-      link: '#',
+      link: 'https://easyroom.io/',
       image: '/src/assets/images/easyRomm.png'
     },
     {
       title: 'Sistema de Gestión de Empleados',
       description: 'Sistema web completo para gestión de personal que incluye registro, control de asistencia, nómina y gestión de activos con flujos automatizados.',
       stack: 'Angular, TypeScript, Bootstrap, REST APIs',
-      link: '#',
+      link: '#https://e-bitware.com/fabrica-software/',
       image: '/src/assets/images/jobapp.png'
     },
     {
       title: 'Portal Gubernamental - Tenancingo',
       description: 'Creación, desarrollo y mantenimiento de la página web oficial del gobierno municipal con gestión de contenidos y sistemas internos.',
       stack: 'HTML, CSS, JavaScript, PHP',
-      link: '#',
+      link: 'https://tenancingo.gob.mx/',
       image: '/src/assets/images/tenancingo.jpg'
     },
 
