@@ -11,9 +11,9 @@ export class StatsComponent implements OnInit, OnDestroy {
   private animationStarted = false;
 
   stats = [
-    { value: 7, text: 'years', subtitle: 'experience', displayedValue: signal(0), suffix: '+' },
-    { value: 15, text: 'projects', subtitle: 'completed', displayedValue: signal(0), suffix: '+' },
-    { value: 5, text: 'industries', subtitle: 'served', displayedValue: signal(0), suffix: '+' },
+    { value: 7, text: 'años', subtitle: 'experiencia', displayedValue: signal(0), suffix: '+' },
+    { value: 15, text: 'proyectos', subtitle: 'completados', displayedValue: signal(0), suffix: '+' },
+    { value: 5, text: 'industrias', subtitle: 'atendidas', displayedValue: signal(0), suffix: '+' },
   ];
 
   ngOnInit(): void {

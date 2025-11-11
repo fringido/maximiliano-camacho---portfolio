@@ -1,24 +1,24 @@
 <section id="contact" class="content-block ultra-minimal relative overflow-hidden" appScrollReveal>
   <video autoplay loop muted playsinline class="glitch-bg top-0 left-0 w-full h-full object-cover z-0 opacity-50">
-    <source src="/src/assets/video4.mp4" type="video/mp4">
+    <source src="/src/assets/video3.mp4" type="video/mp4">
   </video>
     <div class="glass-bg-section"></div>
   <div class="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative z-10">
-    <div class="mb-16 sm:mb-24">
-      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block">05</span>
-      <h2 class="hero-text text-primary mb-8 sm:mb-12">
+    <div class="mb-16 sm:mb-24 animate-fade-up">
+      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">05</span>
+      <h2 class="hero-text text-primary mb-8 sm:mb-12 animate-fade-up animate-delay-100">
         CONTACTO
       </h2>
-      <p class="subtitle max-w-xl sm:max-w-2xl mx-auto">
+      <p class="subtitle max-w-xl sm:max-w-2xl mx-auto animate-fade-up animate-delay-200">
         Estoy disponible para nuevas oportunidades y colaboraciones. 
         Conectemos y creemos algo increíble juntos.
       </p>
     </div>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
-      @for(item of contactInfo; track item.type) {
-        <div class="minimal-card p-6 sm:p-8 text-center group" appScrollReveal>
-          <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 sm:mb-6 flex items-center justify-center border border-glitch">
+      @for(item of contactInfo; track item.type; let i = $index) {
+        <div class="minimal-card p-6 sm:p-8 text-center group hover-lift animate-scale-in" [style.animation-delay]="(i * 0.1 + 0.3) + 's'" appScrollReveal>
+          <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 sm:mb-6 flex items-center justify-center border border-glitch hover-glow transition-all duration-300 animate-float" [style.animation-delay]="(i * 2) + 's'">
             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
               @switch (item.type) {
                 @case ('Email') {
@@ -35,7 +35,7 @@
           </div>
           
           @if (item.link !== '#') {
-            <a [href]="item.link" target="_blank" class="block hover-minimal">
+            <a [href]="item.link" target="_blank" class="block hover-minimal transition-all duration-300">
               <h3 class="text-primary font-bold mb-2 font-mono text-xs sm:text-sm tracking-wider uppercase">{{ item.type }}</h3>
               <p class="text-secondary text-xs sm:text-sm">{{ item.value }}</p>
             </a>
@@ -49,13 +49,13 @@
       }
     </div>
     
-    <div class="space-y-6 sm:space-y-8">
+    <div class="space-y-6 sm:space-y-8 animate-fade-up animate-delay-600">
       <a href="/src/assets/Nuevo Cv Que respira.pdf" download="Maximiliano_Camacho_CV.pdf" 
-         class="btn-minimal hover-minimal inline-block">
+         class="btn-minimal hover-minimal hover-lift inline-block">
         Descargar CV
       </a>
       
-      <p class="text-glitch font-mono text-xs tracking-wider uppercase">
+      <p class="text-glitch font-mono text-xs tracking-wider uppercase animate-pulse">
         Respuesta garantizada en menos de 24 horas
       </p>
     </div>

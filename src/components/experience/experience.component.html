@@ -5,24 +5,24 @@
     <div class="glass-bg-section"></div>
   
   <div class="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-    <div class="mb-16 sm:mb-24">
-      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block">03</span>
-      <h2 class="hero-text text-primary mb-8 sm:mb-12">
+    <div class="mb-16 sm:mb-24 animate-fade-up">
+      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">03</span>
+      <h2 class="hero-text text-primary mb-8 sm:mb-12 animate-fade-up animate-delay-100">
         EXPERIENCIA
       </h2>
     </div>
     
-    <div class="minimal-card p-6 sm:p-8 md:p-12">
+    <div class="minimal-card p-6 sm:p-8 md:p-12 hover-lift animate-scale-in animate-delay-200">
       <div class="space-y-12 sm:space-y-16">
-        @for (exp of experiences; track exp.title) {
-          <div class="border-l border-glitch pl-8 sm:pl-12 relative" appScrollReveal>
+        @for (exp of experiences; track exp.title; let i = $index) {
+          <div class="border-l border-glitch pl-8 sm:pl-12 relative animate-fade-left" [style.animation-delay]="(i * 0.2 + 0.4) + 's'" appScrollReveal>
             <div class="absolute -left-px top-0 w-px h-full bg-gradient-to-b from-accent to-transparent"></div>
-            <div class="absolute -left-1.5 sm:-left-2 top-2 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent rounded-full"></div>
+            <div class="absolute -left-1.5 sm:-left-2 top-2 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent rounded-full animate-pulse"></div>
             
             <div class="space-y-3 sm:space-y-4">
-              <span class="text-glitch font-mono text-xs sm:text-sm tracking-wider uppercase">{{ exp.date }}</span>
-              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">{{ exp.title }}</h3>
-              <p class="subtitle text-lg sm:text-xl">{{ exp.company }}</p>
+              <span class="text-glitch font-mono text-xs sm:text-sm tracking-wider uppercase animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.5) + 's'">{{ exp.date }}</span>
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.6) + 's'">{{ exp.title }}</h3>
+              <p class="subtitle text-lg sm:text-xl animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.7) + 's'">{{ exp.company }}</p>
             </div>
           </div>
         }
