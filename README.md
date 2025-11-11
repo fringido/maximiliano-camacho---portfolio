@@ -1,4 +1,3 @@
-<div align="center">
 
 # Portfolio Personal de Maximiliano Camacho
 
