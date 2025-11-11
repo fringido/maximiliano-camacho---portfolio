@@ -7,7 +7,8 @@
     "dev": "ng serve",
     "build": "ng build",
     "preview": "ng serve --configuration=production",
-    "deploy": "ng build --base-href /maximiliano-camacho---portfolio/ && npx ngh --dir=dist"
+    "deploy": "ng build --base-href /maximiliano-camacho---portfolio/ && npx ngh --dir=dist",
+    "deploy-simple": "node deploy.js"
   },
   "dependencies": {
     "@angular/build": "^20.3.0",
