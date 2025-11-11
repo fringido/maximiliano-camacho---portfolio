@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FadeInDirective } from '../../directives/fade-in.directive';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FadeInDirective],
+  imports: [],
 })
 export class ProjectsComponent {
   projects = [

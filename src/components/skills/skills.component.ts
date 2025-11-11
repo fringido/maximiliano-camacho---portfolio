@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FadeInDirective } from '../../directives/fade-in.directive';
+// import { FadeInDirective } from '../../directives/fade-in.directive'; // Removed as unused
 
 interface Skill {
   name: string;
@@ -17,7 +17,7 @@ interface SkillCategory {
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FadeInDirective],
+  imports: [], // Removed FadeInDirective
 })
 export class SkillsComponent {
   skillCategories: SkillCategory[] = [
