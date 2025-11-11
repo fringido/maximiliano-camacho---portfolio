@@ -20,6 +20,17 @@
         color: #fff;
         font-family: "Orbitron", sans-serif;
       }
+      .glass-bg-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(24px) saturate(200%);
+        -webkit-backdrop-filter: blur(24px) saturate(200%);
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 5;
+      }
       .card {
         backdrop-filter: blur(16px) saturate(200%);
         -webkit-backdrop-filter: blur(16px) saturate(200%);
@@ -110,6 +121,174 @@
       }
       .animate-fade-in {
         animation: fade-in 0.8s ease-out;
+      }
+      .content-block {
+        padding: 12rem 0;
+        margin: 4rem 0;
+        position: relative;
+      }
+      /* Minimal cards */
+      .minimal-card {
+        background: rgba(10, 17, 24, 0.3);
+        border: 1px solid rgba(97, 114, 129, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+
+      .minimal-card:hover {
+        border-color: rgba(13, 75, 115, 0.5);
+        transform: translateY(-4px);
+      }
+
+      .content-block::after {
+        content: "";
+        position: absolute;
+        bottom: -4rem;
+        left: 0;
+        right: 0;
+        height: 8rem;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.8)
+        );
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 1;
+      }
+      .btn-minimal {
+        background-color: rgba(13, 75, 115, 0.2); /* Subtle accent background */
+        border: 2px solid #0d4b73; /* Thicker, more prominent accent border */
+        color: #e9f1f4;
+        padding: 1rem 2rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-radius: 6px; /* Slightly rounded corners */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+      }
+      /* High contrast text */
+      .text-primary {
+        color: #e9f1f4;
+      }
+
+      .text-secondary {
+        color: #9aa8b3;
+      }
+
+      .text-accent {
+        color: #0d4b73;
+      }
+
+      .text-glitch {
+        color: #617281;
+      }
+      .btn-minimal:hover {
+        background-color: #0d4b73; /* Solid accent background on hover */
+        color: #e9f1f4; /* Keep text color white */
+        box-shadow: 0 6px 20px rgba(13, 75, 115, 0.4); /* Stronger shadow on hover */
+        transform: translateY(-2px); /* Slight lift effect */
+      }
+      * Cyber highlights */ .cyber-highlight {
+        color: #0d4b73;
+      }
+
+      .glitch-accent {
+        color: #617281;
+      }
+
+      /* Smooth transitions */
+      .fade-transition {
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Scroll reveal */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .scroll-reveal.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 2px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #0a1118;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #617281;
+        border-radius: 1px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0d4b73;
+      }
+
+      /* Glitch animation */
+      @keyframes glitch {
+        0% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-1px, 1px);
+        }
+        40% {
+          transform: translate(-1px, -1px);
+        }
+        60% {
+          transform: translate(1px, 1px);
+        }
+        80% {
+          transform: translate(1px, -1px);
+        }
+        100% {
+          transform: translate(0);
+        }
+      }
+
+      .glitch-effect {
+        animation: glitch 0.3s ease-in-out infinite;
+      }
+
+      /* Subtle hover effects */
+      .hover-minimal:hover {
+        color: #0d4b73;
+        transition: color 0.3s ease;
+      }
+
+      /* Ultra wide spacing */
+      .ultra-spacing {
+        margin: 12rem 0;
+      }
+
+      /* Ultra minimalist design */
+      .ultra-minimal {
+        background: #000000;
+        color: #e9f1f4;
+      }
+
+      /* Typography */
+      .hero-text {
+        font-size: clamp(4rem, 12vw, 12rem);
+        font-weight: 900;
+        line-height: 0.85;
+        letter-spacing: -0.02em;
+      }
+
+      .section-title {
+        font-size: clamp(3rem, 8vw, 8rem);
+        font-weight: 800;
+        line-height: 0.9;
+        letter-spacing: -0.01em;
       }
     </style>
     <script>
