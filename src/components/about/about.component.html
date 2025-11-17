@@ -6,31 +6,32 @@
     <div class="glass-bg-section"></div>
   
   <div class="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-    <div class="mb-16 sm:mb-24 animate-fade-up">
+    <div class="mb-16 sm:mb-24" appAdvancedScrollReveal animationType="slide-up" [delay]="50">
       <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">02</span>
-      <h2 class="hero-text text-primary mb-8 sm:mb-12 animate-fade-up animate-delay-100">
+      <h2 class="hero-text text-primary mb-8 sm:mb-12" appTypewriter [speed]="50" [delay]="150" [cursor]="false">
         ACERCA DE
       </h2>
     </div>
     
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-start">
-      <div class="space-y-6 sm:space-y-8 animate-fade-left animate-delay-200">
-        <p class="subtitle animate-fade-up animate-delay-300">
-          Líder técnico front-end con más de <span class="text-accent">7 años de experiencia</span> 
+      <div class="space-y-6 sm:space-y-8" appAdvancedScrollReveal animationType="fade-left" [delay]="100">
+        <p class="subtitle" appAdvancedScrollReveal animationType="fade-up" [delay]="200">
+          Líder técnico front-end con más de <span class="text-accent animate-glow">7 años de experiencia</span> 
           creando aplicaciones web y móviles de alto rendimiento.
         </p>
-        <p class="subtitle animate-fade-up animate-delay-400">
-          Especializado en <span class="text-accent">Angular, React e Ionic</span>, 
+        <p class="subtitle" appAdvancedScrollReveal animationType="fade-up" [delay]="250">
+          Especializado en <span class="text-accent animate-glow">Angular, React e Ionic</span>, 
           con enfoque en arquitecturas modulares y escalables.
         </p>
-        <p class="subtitle animate-fade-up animate-delay-500">
+        <p class="subtitle" appAdvancedScrollReveal animationType="fade-up" [delay]="300">
           Apasionado por las mejores prácticas de desarrollo y la optimización 
           de código para experiencias de usuario excepcionales.
         </p>
       </div>
       
-      <div class="minimal-card p-8 sm:p-12 text-center hover-lift animate-scale-in animate-delay-300">
-        <div class="text-4xl sm:text-6xl font-black text-accent mb-3 sm:mb-4 animate-float">7+</div>
+      <div class="minimal-card p-8 sm:p-12 text-center hover-lift hover-scale" appAdvancedScrollReveal animationType="bounce-in" [delay]="150">
+        <div class="text-4xl sm:text-6xl font-black text-accent mb-3 sm:mb-4 animate-float" appCounterAnimation [targetValue]="7" [duration]="1000" [delay]="400" suffix="+">
+        </div>
         <div class="text-secondary font-mono text-xs sm:text-sm tracking-wider uppercase">
           Años de Experiencia
         </div>

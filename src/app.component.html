@@ -1,8 +1,19 @@
 <!-- Loader -->
-<div *ngIf="isLoading" class="fixed inset-0 z-50 flex items-center justify-center bg-black">
-  <div class="text-center">
-    <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-    <p class="text-white text-xl tracking-[0.3em] uppercase">Cargando...</p>
+<div *ngIf="isLoading" class="loader-container">
+  <div class="loader-content">
+    <div class="loader-spinner">
+      <div class="spinner-ring"></div>
+      <div class="spinner-ring"></div>
+      <div class="spinner-ring"></div>
+    </div>
+    <div class="loader-text">
+      <span class="loader-bracket">[</span>
+      <span class="loader-label font-mono">LOADING</span>
+      <span class="loader-bracket">]</span>
+    </div>
+    <div class="loader-dots font-mono">
+      <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+    </div>
   </div>
 </div>
 

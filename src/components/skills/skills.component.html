@@ -4,35 +4,35 @@
   </video>
     <div class="glass-bg-section"></div>
   <div class="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
-    <div class="mb-16 sm:mb-24 animate-fade-up">
+    <div class="mb-16 sm:mb-24" appAdvancedScrollReveal animationType="slide-up" [delay]="50">
       <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">04</span>
-      <h2 class="hero-text text-primary mb-8 sm:mb-12 animate-fade-up animate-delay-100">
+      <h2 class="hero-text text-primary mb-8 sm:mb-12" appTypewriter [speed]="50" [delay]="150" [cursor]="false">
         HABILIDADES
       </h2>
-      <p class="subtitle max-w-xl sm:max-w-2xl mb-8 sm:mb-12 animate-fade-up animate-delay-200">
+      <p class="subtitle max-w-xl sm:max-w-2xl mb-8 sm:mb-12" appAdvancedScrollReveal animationType="fade-up" [delay]="250">
         Tecnologías y herramientas que domino para crear soluciones digitales excepcionales
       </p>
-      <button (click)="openCertificates()" class="btn-minimal hover-minimal hover-lift animate-scale-in animate-delay-300">
+      <button (click)="openCertificates()" class="btn-minimal hover-minimal hover-lift hover-glow animate-glow" appAdvancedScrollReveal animationType="bounce-in" [delay]="350">
         Ver Certificados
       </button>
     </div>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       @for (category of skillCategories; track category.title; let i = $index) {
-        <div class="minimal-card p-6 sm:p-8 hover-lift animate-fade-up" [style.animation-delay]="(i * 0.1 + 0.4) + 's'" appScrollReveal>
-          <h3 class="text-xl sm:text-2xl font-bold text-primary mb-6 sm:mb-8">{{ category.title }}</h3>
+        <div class="minimal-card p-6 sm:p-8 hover-lift hover-scale" appAdvancedScrollReveal animationType="rotate-in" [delay]="i * 50 + 200" appScrollReveal>
+          <h3 class="text-xl sm:text-2xl font-bold text-primary mb-6 sm:mb-8" appTypewriter [speed]="40" [delay]="i * 50 + 300" [cursor]="false">{{ category.title }}</h3>
           
           <div class="space-y-3 sm:space-y-4">
             @for (skill of category.skills; track skill.name; let j = $index) {
-              <div class="flex items-center gap-3 sm:gap-4 py-1 sm:py-2 animate-fade-left" [style.animation-delay]="(j * 0.05 + i * 0.1 + 0.6) + 's'">
+              <div class="flex items-center gap-3 sm:gap-4 py-1 sm:py-2 hover-slide-up" appAdvancedScrollReveal animationType="fade-left" [delay]="j * 25 + i * 50 + 400">
                 @if (skill.isEmoji) {
-                  <span class="text-base sm:text-lg">{{ skill.icon }}</span>
+                  <span class="text-base sm:text-lg animate-float" [style.animation-delay]="(j * 0.1) + 's'">{{ skill.icon }}</span>
                 } @else {
-                  <img [src]="skill.icon" [alt]="skill.name" class="w-4 h-4 sm:w-5 sm:h-5" />
+                  <img [src]="skill.icon" [alt]="skill.name" class="w-4 h-4 sm:w-5 sm:h-5 hover-rotate" />
                 }
                 <span class="text-secondary flex-1 text-sm sm:text-base">{{ skill.name }}</span>
                 @if (skill.featured) {
-                  <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full animate-pulse"></div>
+                  <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full animate-glow"></div>
                 }
               </div>
             }

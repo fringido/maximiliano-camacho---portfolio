@@ -6,7 +6,7 @@ import {
   getDOM,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-UQJSYG26.js";
+} from "./chunk-Y3R4TXKP.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -47,8 +47,6 @@ import {
   ViewEncapsulation,
   XSS_SECURITY_URL,
   ZONELESS_ENABLED,
-  __objRest,
-  __spreadValues,
   _global,
   _sanitizeHtml,
   _sanitizeUrl,
@@ -92,7 +90,11 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-HTPTNRKX.js";
+} from "./chunk-MRKJYTRB.js";
+import {
+  __objRest,
+  __spreadValues
+} from "./chunk-GOMI4DH3.js";
 
 // node_modules/@angular/platform-browser/fesm2022/dom_renderer.mjs
 var EventManagerPlugin = class {

@@ -5,32 +5,32 @@
     <div class="glass-bg-section"></div>
 
   <div class="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
-    <div class="mb-16 sm:mb-24 animate-fade-up">
+    <div class="mb-16 sm:mb-24" appAdvancedScrollReveal animationType="slide-up" [delay]="50">
       <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">03</span>
-      <h2 class="hero-text text-primary mb-8 sm:mb-12 animate-fade-up animate-delay-100">PROYECTOS</h2>
-      <p class="subtitle max-w-xl sm:max-w-2xl animate-fade-up animate-delay-200">
+      <h2 class="hero-text text-primary mb-8 sm:mb-12" appTypewriter [speed]="50" [delay]="150" [cursor]="false">PROYECTOS</h2>
+      <p class="subtitle max-w-xl sm:max-w-2xl" appAdvancedScrollReveal animationType="fade-up" [delay]="250">
         Una selección de proyectos que demuestran mi experiencia y habilidades técnicas
       </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
       @for (project of projects; track project.title; let i = $index) {
-        <div class="minimal-card p-6 sm:p-8 group hover-lift animate-scale-in" [style.animation-delay]="(i * 0.2 + 0.3) + 's'" appScrollReveal>
+        <div class="minimal-card p-6 sm:p-8 group hover-lift hover-scale" appAdvancedScrollReveal animationType="rotate-in" [delay]="i * 100 + 150" appScrollReveal>
           @if (project.image) {
-            <div class="mb-6 sm:mb-8 overflow-hidden rounded-lg">
+            <div class="mb-6 sm:mb-8 overflow-hidden rounded-lg" appAdvancedScrollReveal animationType="scale-in" [delay]="i * 100 + 200">
               <img [src]="project.image" [alt]="project.title" 
                    class="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-all duration-700 ease-out" />
             </div>
           }
 
-          <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6 animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.5) + 's'">
+          <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6" appAdvancedScrollReveal animationType="fade-up" [delay]="i * 100 + 300">
             {{ project.title }}
           </h3>
-          <p class="subtitle mb-6 sm:mb-8 animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.6) + 's'">{{ project.description }}</p>
+          <p class="subtitle mb-6 sm:mb-8" appAdvancedScrollReveal animationType="fade-up" [delay]="i * 100 + 400">{{ project.description }}</p>
 
           <div class="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
             @for (tech of project.stack.split(','); track tech; let j = $index) {
-              <span class="text-glitch font-mono text-xs tracking-wider uppercase border border-glitch px-2 sm:px-3 py-1 animate-fade-left hover-glow transition-all duration-300" [style.animation-delay]="(j * 0.05 + i * 0.2 + 0.7) + 's'">
+              <span class="text-glitch font-mono text-xs tracking-wider uppercase border border-glitch px-2 sm:px-3 py-1 hover-glow hover-scale transition-all duration-300" appAdvancedScrollReveal animationType="fade-left" [delay]="j * 25 + i * 100 + 500">
                 {{ tech.trim() }}
               </span>
             }
@@ -38,11 +38,11 @@
 
           @if (project.link && project.link !== '#') {
             <a [href]="project.link" target="_blank" 
-               class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase hover-lift transition-all duration-300 animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.8) + 's'">
+               class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase hover-lift hover-glow transition-all duration-300" appAdvancedScrollReveal animationType="bounce-in" [delay]="i * 100 + 600">
               Ver Proyecto →
             </a>
           } @else {
-            <span class="text-glitch font-mono text-sm tracking-wider uppercase animate-pulse">
+            <span class="text-glitch font-mono text-sm tracking-wider uppercase animate-glow">
               Próximamente →
             </span>
           }

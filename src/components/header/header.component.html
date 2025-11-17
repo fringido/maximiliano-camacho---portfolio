@@ -1,28 +1,28 @@
-<header class="nav-minimal fixed top-0 w-full z-50">
+<header class="nav-minimal fixed top-0 w-full z-50" appAdvancedScrollReveal animationType="slide-up" [delay]="0">
   <nav class="container mx-auto px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center">
-    <div class="text-lg font-bold animate-fade-left">
-      <a href="#home" class="text-primary hover-minimal hover-lift transition-all duration-300">MC</a>
+    <div class="text-lg font-bold" appAdvancedScrollReveal animationType="bounce-in" [delay]="100">
+      <a href="#home" class="text-primary hover-minimal hover-lift hover-glow transition-all duration-300" appTypewriter [speed]="200" [delay]="300" [cursor]="false">MC</a>
     </div>
     
     <div class="hidden lg:flex items-center space-x-8 xl:space-x-12">
-      <a href="#about" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift transition-all duration-300 animate-fade-up animate-delay-100">
+      <a href="#about" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift hover-scale transition-all duration-300" appAdvancedScrollReveal animationType="fade-up" [delay]="200">
         Acerca de
       </a>
-      <a href="#skills" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift transition-all duration-300 animate-fade-up animate-delay-200">
+      <a href="#skills" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift hover-scale transition-all duration-300" appAdvancedScrollReveal animationType="fade-up" [delay]="250">
         Habilidades
       </a>
-      <a href="#projects" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift transition-all duration-300 animate-fade-up animate-delay-300">
+      <a href="#projects" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift hover-scale transition-all duration-300" appAdvancedScrollReveal animationType="fade-up" [delay]="300">
         Proyectos
       </a>
-      <a href="#experience" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift transition-all duration-300 animate-fade-up animate-delay-400">
+      <a href="#experience" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift hover-scale transition-all duration-300" appAdvancedScrollReveal animationType="fade-up" [delay]="350">
         Experiencia
       </a>
-      <a href="#contact" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift transition-all duration-300 animate-fade-up animate-delay-500">
+      <a href="#contact" class="text-secondary hover-minimal font-mono text-xs sm:text-sm tracking-wider uppercase hover-lift hover-scale transition-all duration-300" appAdvancedScrollReveal animationType="fade-up" [delay]="400">
         Contacto
       </a>
     </div>
     
-    <button (click)="toggleMenu()" class="lg:hidden p-2 hover-lift transition-all duration-300 animate-fade-right">
+    <button (click)="toggleMenu()" class="lg:hidden p-2 hover-lift hover-rotate transition-all duration-300" appAdvancedScrollReveal animationType="rotate-in" [delay]="150">
       @if (!menuOpen()) {
         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -41,12 +41,12 @@
        [class.max-h-0]="!menuOpen()"
        [class.p-4]="menuOpen()"
        [class.sm:p-6]="menuOpen()">
-    <div class="flex flex-col space-y-4 sm:space-y-6 bg-black/90 backdrop-blur-20 p-4 sm:p-6 rounded-lg">
-      <a href="#about" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase" (click)="closeMenu()">Acerca de</a>
-      <a href="#skills" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase" (click)="closeMenu()">Habilidades</a>
-      <a href="#projects" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase" (click)="closeMenu()">Proyectos</a>
-      <a href="#experience" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase" (click)="closeMenu()">Experiencia</a>
-      <a href="#contact" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase" (click)="closeMenu()">Contacto</a>
+    <div class="flex flex-col space-y-4 sm:space-y-6 bg-black/90 backdrop-blur-20 p-4 sm:p-6 rounded-lg animate-slide-bottom">
+      <a href="#about" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase hover-glow stagger-1" (click)="closeMenu()">Acerca de</a>
+      <a href="#skills" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase hover-glow stagger-2" (click)="closeMenu()">Habilidades</a>
+      <a href="#projects" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase hover-glow stagger-3" (click)="closeMenu()">Proyectos</a>
+      <a href="#experience" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase hover-glow stagger-4" (click)="closeMenu()">Experiencia</a>
+      <a href="#contact" class="text-secondary hover-minimal font-mono text-sm tracking-wider uppercase hover-glow stagger-5" (click)="closeMenu()">Contacto</a>
     </div>
   </div>
 </header>

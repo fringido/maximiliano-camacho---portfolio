@@ -1,32 +1,108 @@
-<section id="experience" class="content-block ultra-minimal relative overflow-hidden" appScrollReveal>
+<section id="experience" class="content-block ultra-minimal relative overflow-hidden" appAdvancedScrollReveal animationType="fade-up" [delay]="100">
   <video autoplay loop muted playsinline class="glitch-bg top-0 left-0 w-full h-full object-cover z-0 opacity-50">
     <source src="/src/assets/video2.mp4" type="video/mp4">
   </video>
-    <div class="glass-bg-section"></div>
+  <div class="glass-bg-section"></div>
   
-  <div class="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-    <div class="mb-16 sm:mb-24 animate-fade-up">
-      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">03</span>
-      <h2 class="hero-text text-primary mb-8 sm:mb-12 animate-fade-up animate-delay-100">
+  <div class="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
+    <!-- Header Section -->
+    <div class="mb-16 sm:mb-24 text-center" appAdvancedScrollReveal animationType="slide-up" [delay]="50">
+      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">05</span>
+      <h2 class="hero-text text-primary mb-8 sm:mb-12" appTypewriter [speed]="50" [delay]="150" [cursor]="false">
         EXPERIENCIA
       </h2>
+      <p class="subtitle max-w-2xl mx-auto" appAdvancedScrollReveal animationType="fade-up" [delay]="250">
+        Trayectoria profesional y logros destacados en desarrollo front-end
+      </p>
     </div>
     
-    <div class="minimal-card p-6 sm:p-8 md:p-12 hover-lift animate-scale-in animate-delay-200">
-      <div class="space-y-12 sm:space-y-16">
-        @for (exp of experiences; track exp.title; let i = $index) {
-          <div class="border-l border-glitch pl-8 sm:pl-12 relative animate-fade-left" [style.animation-delay]="(i * 0.2 + 0.4) + 's'" appScrollReveal>
-            <div class="absolute -left-px top-0 w-px h-full bg-gradient-to-b from-accent to-transparent"></div>
-            <div class="absolute -left-1.5 sm:-left-2 top-2 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent rounded-full animate-pulse"></div>
-            
-            <div class="space-y-3 sm:space-y-4">
-              <span class="text-glitch font-mono text-xs sm:text-sm tracking-wider uppercase animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.5) + 's'">{{ exp.date }}</span>
-              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.6) + 's'">{{ exp.title }}</h3>
-              <p class="subtitle text-lg sm:text-xl animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.7) + 's'">{{ exp.company }}</p>
-            </div>
+    <!-- Experience Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      @for (exp of experiences; track exp.title; let i = $index) {
+        <div class="minimal-card p-8 sm:p-10 group hover-lift hover-scale relative overflow-hidden" appAdvancedScrollReveal animationType="rotate-in" [delay]="i * 100 + 350">
+          <!-- Background Pattern -->
+          <div class="absolute top-0 right-0 w-32 h-32 opacity-5 transform rotate-12 translate-x-8 -translate-y-8">
+            <svg fill="currentColor" viewBox="0 0 24 24" class="text-accent">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
           </div>
-        }
-      </div>
+          
+          <!-- Experience Number -->
+          <div class="absolute top-6 right-6 w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center border border-accent/30 animate-glow">
+            <span class="text-accent font-mono font-bold text-sm" appCounterAnimation [targetValue]="i + 1" [duration]="500" [delay]="i * 100 + 450" suffix="">
+            </span>
+          </div>
+          
+          <!-- Date Badge -->
+          <div class="inline-flex items-center px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6 animate-glow">
+            <svg class="w-4 h-4 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span class="text-accent font-mono text-xs tracking-wider uppercase font-bold">{{ exp.date }}</span>
+          </div>
+          
+          <!-- Job Title -->
+          <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-4 group-hover:text-accent transition-colors duration-300 leading-tight" appTypewriter [speed]="50" [delay]="i * 200 + 1200" [cursor]="false">
+            {{ exp.title }}
+          </h3>
+          
+          <!-- Company -->
+          <div class="flex items-center mb-6">
+            <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center mr-3 animate-float" [style.animation-delay]="(i * 0.3) + 's'">
+              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+              </svg>
+            </div>
+            <p class="subtitle text-lg font-medium" appAdvancedScrollReveal animationType="fade-up" [delay]="i * 200 + 1400">
+              {{ exp.company }}
+            </p>
+          </div>
+          
+          <!-- Description -->
+          @if (exp.description) {
+            <p class="text-secondary mb-6 leading-relaxed" appAdvancedScrollReveal animationType="fade-up" [delay]="i * 200 + 1600">
+              {{ exp.description }}
+            </p>
+          }
+          
+          <!-- Technologies -->
+          @if (exp.technologies) {
+            <div class="border-t border-glitch/20 pt-6">
+              <h4 class="text-accent font-mono text-xs tracking-wider uppercase mb-3 font-bold">Tecnologías</h4>
+              <div class="flex flex-wrap gap-2">
+                @for (tech of exp.technologies; track tech; let j = $index) {
+                  <span class="text-xs px-3 py-1 bg-accent/10 text-accent border border-accent/30 rounded-full font-mono tracking-wider hover-glow hover-scale transition-all duration-300" appAdvancedScrollReveal animationType="bounce-in" [delay]="j * 100 + i * 200 + 1800">
+                    {{ tech }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+          
+          <!-- Achievements -->
+          @if (exp.achievements) {
+            <div class="border-t border-glitch/20 pt-6 mt-6">
+              <h4 class="text-accent font-mono text-xs tracking-wider uppercase mb-3 font-bold flex items-center">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Logros
+              </h4>
+              <ul class="space-y-2">
+                @for (achievement of exp.achievements; track achievement; let k = $index) {
+                  <li class="text-secondary text-sm flex items-start" appAdvancedScrollReveal animationType="fade-left" [delay]="k * 150 + i * 200 + 2000">
+                    <div class="w-1.5 h-1.5 bg-accent rounded-full mt-2 mr-3 flex-shrink-0 animate-pulse"></div>
+                    {{ achievement }}
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      }
     </div>
   </div>
 </section>

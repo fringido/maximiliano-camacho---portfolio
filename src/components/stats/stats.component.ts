@@ -1,9 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal, ElementRef, inject, OnInit, OnDestroy } from '@angular/core';
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { AdvancedScrollRevealDirective } from '../../directives/advanced-scroll-reveal.directive';
+import { TypewriterDirective } from '../../directives/typewriter.directive';
+import { CounterAnimationDirective } from '../../directives/counter-animation.directive';
 
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ScrollRevealDirective, AdvancedScrollRevealDirective, TypewriterDirective, CounterAnimationDirective],
+  standalone: true
 })
 export class StatsComponent implements OnInit, OnDestroy {
   private elementRef = inject(ElementRef);
@@ -31,15 +37,28 @@ export class StatsComponent implements OnInit, OnDestroy {
   }
 
   startCountAnimation(): void {
-    this.stats.forEach(stat => {
-      const duration = 2000;
+    this.stats.forEach((stat, index) => {
+      const duration = 2500;
       const finalValue = stat.value;
+      const delay = index * 300; // Stagger animation
       let startTimestamp: number | null = null;
+
+      const easeOutQuart = (t: number): number => {
+        return 1 - Math.pow(1 - t, 4);
+      };
 
       const step = (timestamp: number) => {
         if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const currentValue = Math.floor(progress * finalValue);
+        const elapsed = timestamp - startTimestamp - delay;
+        
+        if (elapsed < 0) {
+          window.requestAnimationFrame(step);
+          return;
+        }
+        
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuart(progress);
+        const currentValue = Math.floor(easedProgress * finalValue);
         stat.displayedValue.set(currentValue);
 
         if (progress < 1) {

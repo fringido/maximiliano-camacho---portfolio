@@ -1,6 +1,9 @@
 <section
   id="home"
   class="h-screen w-full flex items-center justify-center text-center relative overflow-hidden glitch-bg"
+  appAdvancedScrollReveal
+  animationType="fade-up"
+  [delay]="0"
 >  <video
     autoplay
     loop
@@ -13,24 +16,28 @@
   <div class="absolute inset-0 bg-black/60 z-10"></div>
   
   <div class="relative z-20 px-4 sm:px-6 text-center" appScrollReveal>
-    <div class="mb-8 sm:mb-12 animate-fade-up animate-delay-100">
-      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase animate-pulse">Maximiliano Camacho</span>
+    <div class="mb-8 sm:mb-12 animate-slide-up animate-delay-100">
+      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase animate-pulse" appTypewriter [speed]="50" [delay]="200">
+        Maximiliano Camacho
+      </span>
     </div>
     
-    <h1 class="hero-text text-primary mb-12 sm:mb-16 animate-fade-up animate-delay-200">
-      FRONT-END<br>
-      <span class="cyber-highlight animate-float">DEVELOPER</span>
+    <h1 class="hero-text text-primary mb-12 sm:mb-16 animate-bounce-in animate-delay-200">
+      <span appTypewriter [speed]="40" [delay]="600" [cursor]="false">FRONT-END</span><br>
+      <span class="cyber-highlight animate-float" appTypewriter [speed]="40" [delay]="1000" [cursor]="false">DEVELOPER</span>
     </h1>
     
     <p class="subtitle max-w-xl sm:max-w-2xl mx-auto mb-12 sm:mb-16 px-4 animate-fade-up animate-delay-300">
-      Especializado en arquitecturas escalables y experiencias digitales de alto rendimiento
+      <span appTypewriter [speed]="20" [delay]="1400" [cursor]="false">
+        Especializado en arquitecturas escalables y experiencias digitales de alto rendimiento
+      </span>
     </p>
     
-    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 animate-fade-up animate-delay-400">
-      <a href="#projects" class="btn-minimal hover-minimal hover-lift">
+    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 animate-scale-in animate-delay-400">
+      <a href="#projects" class="btn-minimal hover-minimal hover-lift hover-glow animate-glow">
         Ver Proyectos
       </a>
-      <a href="#contact" class="btn-minimal hover-minimal hover-lift">
+      <a href="#contact" class="btn-minimal hover-minimal hover-lift hover-scale">
         Contactar
       </a>
     </div>

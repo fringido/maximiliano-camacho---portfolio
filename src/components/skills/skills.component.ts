@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-// import { FadeInDirective } from '../../directives/fade-in.directive'; // Removed as unused
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { AdvancedScrollRevealDirective } from '../../directives/advanced-scroll-reveal.directive';
+import { TypewriterDirective } from '../../directives/typewriter.directive';
 
 interface Skill {
   name: string;
@@ -17,7 +19,8 @@ interface SkillCategory {
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [], // Removed FadeInDirective
+  imports: [ScrollRevealDirective, AdvancedScrollRevealDirective, TypewriterDirective],
+  standalone: true
 })
 export class SkillsComponent {
   skillCategories: SkillCategory[] = [

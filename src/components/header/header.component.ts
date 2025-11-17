@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, signal, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdvancedScrollRevealDirective } from '../../directives/advanced-scroll-reveal.directive';
+import { TypewriterDirective } from '../../directives/typewriter.directive';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AdvancedScrollRevealDirective, TypewriterDirective],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

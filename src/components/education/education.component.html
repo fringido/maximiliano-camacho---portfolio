@@ -1,24 +1,82 @@
-<section id="education" class="content-block ultra-minimal relative overflow-hidden" appScrollReveal>
+<section id="education" class="content-block ultra-minimal relative overflow-hidden" appAdvancedScrollReveal animationType="fade-up" [delay]="100">
   <video autoplay loop muted playsinline class="glitch-bg top-0 left-0 w-full h-full object-cover z-0 opacity-50">
     <source src="/src/assets/video4.mp4" type="video/mp4">
   </video>
-    <div class="glass-bg-section"></div>
-  <div class="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-    <div class="mb-16 sm:mb-24 animate-fade-up">
-      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">04</span>
-      <h2 class="hero-text text-primary mb-8 sm:mb-12 animate-fade-up animate-delay-100">
+  <div class="glass-bg-section"></div>
+  
+  <div class="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
+    <!-- Header Section -->
+    <div class="mb-16 sm:mb-24 text-center" appAdvancedScrollReveal animationType="slide-up" [delay]="50">
+      <span class="text-glitch font-mono text-xs sm:text-sm tracking-widest uppercase mb-6 sm:mb-8 block animate-pulse">06</span>
+      <h2 class="hero-text text-primary mb-8 sm:mb-12" appTypewriter [speed]="50" [delay]="150" [cursor]="false">
         EDUCACIÓN
       </h2>
+      <p class="subtitle max-w-2xl mx-auto" appAdvancedScrollReveal animationType="fade-up" [delay]="250">
+        Formación académica y desarrollo profesional continuo
+      </p>
     </div>
     
-    <div class="space-y-12 sm:space-y-16">
-      @for (item of education; track item.degree; let i = $index) {
-        <div class="minimal-card p-6 sm:p-8 hover-lift animate-fade-left" [style.animation-delay]="(i * 0.2 + 0.3) + 's'" appScrollReveal>
-          <span class="text-glitch font-mono text-xs sm:text-sm tracking-wider uppercase mb-3 sm:mb-4 block animate-pulse">{{ item.period }}</span>
-          <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-3 sm:mb-4 animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.4) + 's'">{{ item.degree }}</h3>
-          <p class="subtitle animate-fade-up" [style.animation-delay]="(i * 0.2 + 0.5) + 's'">{{ item.institution }}</p>
-        </div>
-      }
+    <!-- Education Timeline -->
+    <div class="relative">
+      <!-- Timeline Line -->
+      <div class="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-accent to-transparent opacity-30"></div>
+      
+      <div class="space-y-24 sm:space-y-28">
+        @for (item of education; track item.degree; let i = $index) {
+          <div class="relative" appAdvancedScrollReveal animationType="rotate-in" [delay]="i * 150 + 350">
+            <!-- Timeline Dot -->
+            <div class="absolute left-2 sm:left-1/2 transform sm:-translate-x-1/2 w-4 h-4 bg-accent rounded-full animate-glow" [style.animation-delay]="(i * 0.3) + 's'">
+              <div class="absolute inset-1 bg-primary rounded-full animate-pulse"></div>
+            </div>
+            
+            <!-- Content Card -->
+            <div class="ml-12 sm:ml-0" [class.sm:pr-8]="i % 2 === 0" [class.sm:pl-8]="i % 2 === 1" [class.sm:text-right]="i % 2 === 0">
+              <div class="minimal-card p-8 sm:p-10 hover-lift hover-scale group" [class.sm:ml-8]="i % 2 === 1">
+                <!-- Period Badge -->
+                <div class="inline-flex items-center px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6 animate-glow">
+                  <svg class="w-4 h-4 text-accent mr-2 animate-spin" [style.animation-duration]="'3s'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                  </svg>
+                  <span class="text-accent font-mono text-xs tracking-wider uppercase font-bold">{{ item.period }}</span>
+                </div>
+                
+                <!-- Degree -->
+                <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-4 group-hover:text-accent transition-colors duration-300" appTypewriter [speed]="30" [delay]="i * 150 + 450" [cursor]="false">
+                  {{ item.degree }}
+                </h3>
+                
+                <!-- Institution -->
+                <div class="flex items-center" [class.justify-end]="i % 2 === 0" [class.justify-start]="i % 2 === 1">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center animate-float" [style.animation-delay]="(i * 0.2) + 's'">
+                      <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                      </svg>
+                    </div>
+                    <p class="subtitle text-lg font-medium" appAdvancedScrollReveal animationType="fade-up" [delay]="i * 150 + 550">
+                      {{ item.institution }}
+                    </p>
+                  </div>
+                </div>
+                
+                <!-- Skills/Achievements -->
+                @if (item.skills) {
+                  <div class="mt-6 pt-6 border-t border-glitch/20">
+                    <div class="flex flex-wrap gap-2" [class.justify-end]="i % 2 === 0" [class.justify-start]="i % 2 === 1">
+                      @for (skill of item.skills; track skill; let j = $index) {
+                        <span class="text-xs px-3 py-1 bg-accent/10 text-accent border border-accent/30 rounded-full font-mono tracking-wider hover-glow transition-all duration-300" appAdvancedScrollReveal animationType="bounce-in" [delay]="j * 50 + i * 150 + 650">
+                          {{ skill }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
     </div>
   </div>
 </section>
